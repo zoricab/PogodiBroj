@@ -26,6 +26,7 @@ public class frmMain {
 	private JLabel trenStanje;
 	protected PogodiBroj broj;
 	private JLabel brojTrenGreski;
+	private JLabel brBodova;
 
 
 	/**
@@ -60,6 +61,7 @@ public class frmMain {
 				broj.setGornjaGr(gornjaGranica);
 				brDozvoljenihGr.setText(String.valueOf(broj.getBrDozGreski()));
 				brojTrenGreski.setText(String.valueOf(broj.getBrTrenGreski()));
+				brBodova.setText(String.valueOf(broj.getBrBodova()));
 				//}
 				
 				//catch (Exception ex)
@@ -87,6 +89,7 @@ public class frmMain {
 				//broj.setUneseniBr(unosBroja.getText().length());
 				brojTrenGreski.setText(String.valueOf(broj.getBrTrenGreski()));
 				trenStanje.setText(String.valueOf(broj.getStanje()));
+				brBodova.setText(String.valueOf(broj.getBrBodova()));
 			
 				try{
 				if(broj.isTerminirajProgram()){
@@ -129,5 +132,13 @@ public class frmMain {
 		brojTrenGreski = new JLabel("");
 		brojTrenGreski.setBounds(191, 189, 46, 14);
 		frame.getContentPane().add(brojTrenGreski);
+		
+		JLabel lblBrojBodova = new JLabel("Broj bodova:");
+		lblBrojBodova.setBounds(263, 164, 62, 14);
+		frame.getContentPane().add(lblBrojBodova);
+		
+		brBodova = new JLabel("");
+		brBodova.setBounds(367, 164, 46, 14);
+		frame.getContentPane().add(brBodova);
 	}
 }

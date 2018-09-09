@@ -14,6 +14,7 @@ public class PogodiBroj implements IOperations{
 	protected int brDozGreski;
 	protected boolean terminirajProgram;
 	protected int brTrenGreski;
+	protected int brBodova;
 	
 	public PogodiBroj ()
 	{
@@ -24,7 +25,7 @@ public class PogodiBroj implements IOperations{
 		//Random rnd = new Random();
 		//this.trazeniBr = rnd.nextInt(this.gornjaGr)+1;
 		this.brDozGreski = 0;
-				
+		this.brBodova = 0;		
 		this.terminirajProgram = false;
 		
 		
@@ -35,6 +36,15 @@ public class PogodiBroj implements IOperations{
 		Random rnd = new Random();
 		this.trazeniBr = rnd.nextInt(this.gornjaGr)+1;
 		this.brDozGreski = (this.trazeniBr/5)+5;
+		this.brBodova = this.brDozGreski * 100;
+	}
+	
+	public int getBrBodova() {
+		return brBodova;
+	}
+
+	public void setBrBodova(int brBodova) {
+		this.brBodova = brBodova;
 	}
 
 	public int getBrTrenGreski() {
@@ -102,12 +112,15 @@ public class PogodiBroj implements IOperations{
 		if (this.trazeniBr == this.uneseniBr)
 		{
 			this.stanje = Stanje.sPogodjen;
-			this.terminirajProgram = true;	
+			this.terminirajProgram = true;
+			if(this.brTrenGreski<5)
+				this.brBodova +=500;
 		}else{	
 			if(this.trazeniBr > this.uneseniBr)
 				this.stanje = Stanje.sVeci;
 				else this.stanje = Stanje.sManji;
 					this.brTrenGreski++;
+					this.brBodova -=100;
 					
 		}	
 		
